@@ -21,3 +21,9 @@ public class StringArray
 {
     public string[] conversation;
 }
+
+[Serializable]
+public class BoolArray
+{
+    public bool[] trueOrFalse;
+}

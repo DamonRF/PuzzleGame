@@ -10,6 +10,17 @@ public class Typing : MonoBehaviour {
     string text;
     float totalTime = 0;
     int charCount = 0;
+    public GameObject activationSpot;
+    public GameObject yesOrNo;
+    public bool choice = false;
+    public bool loadScene = false;
+    public bool instantStart = false;
+    public string sceneName;
+    bool activateME = false;
+    private bool isTalking = false;
+    public bool semiCutscene = false;
+    public bool onlyOnce = false;
+    public bool branching = false;
     public float textSpeed = 0.1f;
     void Start()
     {

@@ -19,7 +19,7 @@ public class Interact : MonoBehaviour {
     {
         if (Input.GetButtonDown("e") && collision.gameObject.GetComponent<Info>().interactable)
         {
-
+            interaction.GetComponentInChildren<Typing>().conversation = collision.gameObject.GetComponent<Info>().conversation;
         }
     }
 
