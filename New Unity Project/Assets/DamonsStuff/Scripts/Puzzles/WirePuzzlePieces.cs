@@ -6,21 +6,27 @@ public class WirePuzzlePieces : MonoBehaviour {
     public GameObject director;
     public int correctPosition;
     public int maxPosition;
+    public int currentPosition;
     public bool rightPosition = false;
     int position = 1;
 	// Use this for initialization
 	void Start () {
-		
+        position = currentPosition;
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		
 	}
+    //Pointing up is 1
+    //Pointing left is 2
+    //Pointing down is 3
+    //Pointing right is 4
+
 
     public void RotateMe()
     {
-        this.gameObject.transform.rotation = new Quaternion(0, 0, 0, w: +90);
+        this.gameObject.GetComponent<RectTransform>().Rotate(new Vector3(0, 0, 1), 90);
         position += 1;
         if (position > maxPosition)
         {
@@ -33,5 +39,6 @@ public class WirePuzzlePieces : MonoBehaviour {
         {
             rightPosition = false;
         }
+        director.GetComponent<WirePuzzle>().UpdatePlaces(rightPosition, this.gameObject);
     }
 }

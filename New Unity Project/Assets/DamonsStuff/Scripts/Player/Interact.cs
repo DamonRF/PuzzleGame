@@ -15,13 +15,25 @@ public class Interact : MonoBehaviour {
 		
 	}
 
-    private void OnCollisionStay2D(Collision2D collision)
+    private void OnTriggerStay2D(Collider2D collision)
     {
-        if (Input.GetButtonDown("e") && collision.gameObject.GetComponent<Info>().interactable)
+        if (Input.GetKeyDown(KeyCode.E) && collision.gameObject.GetComponent<Info>().interactable)
         {
+            interaction.SetActive(true);
+            interaction.GetComponentInChildren<Typing>().Restart();
             interaction.GetComponentInChildren<Typing>().conversation = collision.gameObject.GetComponent<Info>().conversation;
+            ToggleMovement(true);
         }
     }
+
+    /*private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (Input.GetKeyDown(KeyCode.E) && collision.gameObject.GetComponent<Info>().interactable)
+        {
+            interaction.SetActive(true);
+            interaction.GetComponentInChildren<Typing>().conversation = collision.gameObject.GetComponent<Info>().conversation;
+        }
+    }*/
 
     public void ToggleMovement(bool talking)
     {

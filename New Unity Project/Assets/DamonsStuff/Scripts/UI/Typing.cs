@@ -10,7 +10,9 @@ public class Typing : MonoBehaviour {
     string text;
     float totalTime = 0;
     int charCount = 0;
+    public GameObject parent;
     public GameObject activationSpot;
+    public GameObject player;
     public GameObject yesOrNo;
     public bool choice = false;
     public bool loadScene = false;
@@ -26,6 +28,7 @@ public class Typing : MonoBehaviour {
     {
         //we are assuming we are attaching this script to a text object
         text = gameObject.GetComponent<Text>().text;
+        player = GameObject.FindGameObjectWithTag("Player");
     }
 
     // Update is called once per frame
@@ -48,10 +51,38 @@ public class Typing : MonoBehaviour {
 			}
 		}*/
         gameObject.GetComponent<Text>().text = words;
+        if (Input.GetKeyDown(KeyCode.E) && activateME)
+        {
+            conversationIndex++;
+            charCount = 0;
+            if (conversationIndex >= conversation[conversationPlace].conversation.Length)
+            {
+                if (choice)
+                {
+                    yesOrNo.SetActive(true);
+                }
+                else
+                {
+                    EndConversation();
+                }
+                
+            }
+        }
+        activateME = true;
     }
-    public void OnButtonClick()
+    public void Restart()
     {
-        conversationIndex++;
+        conversationPlace = 0;
+        conversationIndex = 0;
         charCount = 0;
+        totalTime = 0;
+        activateME = false;
+    }
+    public void EndConversation()
+    {
+        Debug.Log("Ended Conversation");
+        player.GetComponent<Interact>().ToggleMovement(false);
+        Restart();
+        parent.SetActive(false);
     }
 }

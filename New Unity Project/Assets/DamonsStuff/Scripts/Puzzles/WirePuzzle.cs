@@ -7,9 +7,6 @@ public class WirePuzzle : MonoBehaviour {
     public GameObject[] pieces;
 	// Use this for initialization
 	void Start () {
-        GameObject[] addPieces = GameObject.FindGameObjectsWithTag("Piece");
-        pieces = addPieces;
-        
         for (int i = 0; i < pieces.Length; i++)
         {
             correctPlaces.trueOrFalse[i] = pieces[i].GetComponent<WirePuzzlePieces>().rightPosition;
@@ -20,4 +17,33 @@ public class WirePuzzle : MonoBehaviour {
 	void Update () {
 		
 	}
+
+    public void UpdatePlaces(bool rightPlace, GameObject piece)
+    {
+        int place = 0;
+        for (int i = 0; i < pieces.Length; i++)
+        {
+            if(pieces[i] == piece)
+            {
+                place = i;
+                break;
+            }
+        }
+        if (rightPlace)
+        {
+            correctPlaces.trueOrFalse[place] = true;
+        } else
+        {
+            correctPlaces.trueOrFalse[place] = false;
+        }
+        for (int i = 0; i < correctPlaces.trueOrFalse.Length; i++)
+        {
+            if (!correctPlaces.trueOrFalse[i])
+            {
+                Debug.Log("Incorrect");
+                return;
+            }
+        }
+        Debug.Log("You win!");
+    }
 }
