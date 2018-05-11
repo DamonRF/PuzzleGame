@@ -12,6 +12,10 @@ public class WirePuzzlePieces : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         position = currentPosition;
+        if(position <= 0)
+        {
+            position = 1;
+        }
 	}
 	
 	// Update is called once per frame
