@@ -19,10 +19,7 @@ public class Interact : MonoBehaviour {
     {
         if (Input.GetKeyDown(KeyCode.E) && collision.gameObject.GetComponent<Info>().interactable)
         {
-            interaction.SetActive(true);
-            interaction.GetComponentInChildren<Typing>().Restart();
-            interaction.GetComponentInChildren<Typing>().conversation = collision.gameObject.GetComponent<Info>().conversation;
-            ToggleMovement(true);
+            TransferInfo(collision.gameObject);
         }
     }
 
@@ -34,6 +31,19 @@ public class Interact : MonoBehaviour {
             interaction.GetComponentInChildren<Typing>().conversation = collision.gameObject.GetComponent<Info>().conversation;
         }
     }*/
+
+    private void TransferInfo(GameObject collision)
+    {
+        interaction.SetActive(true);
+        interaction.GetComponentInChildren<Typing>().Restart();
+        interaction.GetComponentInChildren<Typing>().conversation = collision.GetComponent<Info>().conversation;
+        interaction.GetComponentInChildren<Typing>().item = collision.GetComponent<Info>().item;
+        if (collision.GetComponent<Info>().item)
+        {
+            interaction.GetComponentInChildren<Typing>().itemObject = collision;
+        }
+        ToggleMovement(true);
+    }
 
     public void ToggleMovement(bool talking)
     {

@@ -2,10 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Info : MonoBehaviour {
-    public bool interactable = false;
-    public bool item = false;
-    public StringArray[] conversation;
+public class Pickup : MonoBehaviour {
+
+    public GameObject inventoryItem;
 	// Use this for initialization
 	void Start () {
 		
@@ -15,4 +14,8 @@ public class Info : MonoBehaviour {
 	void Update () {
 		
 	}
+    public void PickupItem()
+    {
+        inventoryItem.SetActive(true);
+    }
 }

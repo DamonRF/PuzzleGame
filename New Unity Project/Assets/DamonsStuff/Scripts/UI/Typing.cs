@@ -14,6 +14,8 @@ public class Typing : MonoBehaviour {
     public GameObject activationSpot;
     public GameObject player;
     public GameObject yesOrNo;
+    public GameObject itemObject;
+    public bool item = false;
     public bool choice = false;
     public bool loadScene = false;
     public bool instantStart = false;
@@ -57,6 +59,10 @@ public class Typing : MonoBehaviour {
             charCount = 0;
             if (conversationIndex >= conversation[conversationPlace].conversation.Length)
             {
+                if (item)
+                {
+                    itemObject.GetComponent<Pickup>().PickupItem();
+                }
                 if (choice)
                 {
                     yesOrNo.SetActive(true);
@@ -65,6 +71,7 @@ public class Typing : MonoBehaviour {
                 {
                     EndConversation();
                 }
+                
                 
             }
         }
