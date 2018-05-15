@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class Interact : MonoBehaviour {
     public GameObject interaction;
-
-	// Use this for initialization
-	void Start () {
+    public GameObject inventory;
+    public GameObject chest;
+    // Use this for initialization
+    void Start () {
 		
 	}
 	
@@ -17,9 +18,17 @@ public class Interact : MonoBehaviour {
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (Input.GetKeyDown(KeyCode.E) && collision.gameObject.GetComponent<Info>().interactable)
+        if (Input.GetKeyDown(KeyCode.E) && collision.gameObject.tag == "Interactable")
         {
             TransferInfo(collision.gameObject);
+        }
+        else if (Input.GetKeyDown(KeyCode.E) && collision.gameObject.tag == "Chest")
+        {
+            ToggleMovement(true);
+            inventory.SetActive(true);
+            chest.SetActive(true);
+            inventory.GetComponentInChildren<NextMenu>().isChest = true;
+            inventory.GetComponentInChildren<Chest>().atChest = true;
         }
     }
 
