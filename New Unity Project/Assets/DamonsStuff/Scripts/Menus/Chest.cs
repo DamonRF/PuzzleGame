@@ -7,7 +7,7 @@ public class Chest : MonoBehaviour {
     public bool atChest = false;
 	// Use this for initialization
 	void Start () {
-        atChest = false;
+        //atChest = false;
 	}
 	
 	// Update is called once per frame

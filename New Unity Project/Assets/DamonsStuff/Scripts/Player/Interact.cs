@@ -27,8 +27,17 @@ public class Interact : MonoBehaviour {
             ToggleMovement(true);
             inventory.SetActive(true);
             chest.SetActive(true);
+            Debug.Log("Bleeeeeeeegh");
             inventory.GetComponentInChildren<NextMenu>().isChest = true;
-            inventory.GetComponentInChildren<Chest>().atChest = true;
+            GameObject[] inventoryItems = inventory.GetComponent<InventoryManagement>().inventory;
+            for (int i = 0; i < inventoryItems.Length; i++)
+            {            
+                inventoryItems[i].GetComponent<Chest>().atChest = true;
+                //Debug.Log(i);
+            }
+
+            //inventory.GetComponentInChildren<Chest>().atChest = true;
+            
         }
     }
 

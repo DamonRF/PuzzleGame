@@ -26,8 +26,13 @@ public class NextMenu : MonoBehaviour {
             chest.SetActive(false);
             player.GetComponent<Interact>().ToggleMovement(false);
             isChest = false;
-            overallMenu.GetComponent<NextMenu>().isChest = false;
-            overallMenu.GetComponentInChildren<Chest>().atChest = false;
+            //overallMenu.GetComponent<NextMenu>().isChest = false;
+            GameObject[] inventoryItems = overallMenu.GetComponent<InventoryManagement>().inventory;
+            for (int i = 0; i < inventoryItems.Length; i++)
+            {
+                inventoryItems[i].GetComponent<Chest>().atChest = false;
+            }
+            //overallMenu.GetComponentInChildren<Chest>().atChest = false;
         }
     }
     private void OpenNextMenu(bool opening, GameObject menu)
