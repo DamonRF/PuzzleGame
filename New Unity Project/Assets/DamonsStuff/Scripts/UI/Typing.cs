@@ -63,6 +63,10 @@ public class Typing : MonoBehaviour {
                 {
                     itemObject.GetComponent<Pickup>().PickupItem();
                 }
+                if (onlyOnce)
+                {
+                    activationSpot.SetActive(false);
+                }
                 if (choice)
                 {
                     yesOrNo.SetActive(true);

@@ -2,11 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Info : MonoBehaviour {
-    public bool interactable = false;
-    public bool item = false;
-    public bool onlyOnce = false;
-    public StringArray[] conversation;
+public class Selected : MonoBehaviour {
+    public bool selected = true;
+    public GameObject Menu;
 	// Use this for initialization
 	void Start () {
 		

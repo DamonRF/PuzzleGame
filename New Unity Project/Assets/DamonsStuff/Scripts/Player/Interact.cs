@@ -60,6 +60,8 @@ public class Interact : MonoBehaviour {
         {
             interaction.GetComponentInChildren<Typing>().itemObject = collision;
         }
+        interaction.GetComponentInChildren<Typing>().onlyOnce = collision.GetComponent<Info>().onlyOnce;
+        interaction.GetComponentInChildren<Typing>().activationSpot = collision;
         ToggleMovement(true);
     }
 
