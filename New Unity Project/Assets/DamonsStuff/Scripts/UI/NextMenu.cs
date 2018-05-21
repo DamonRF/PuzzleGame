@@ -6,8 +6,10 @@ public class NextMenu : MonoBehaviour {
     public GameObject nextMenu;
     public GameObject overallMenu;
     public GameObject chest;
+    public GameObject selectedThing;
     public bool opening = false;
     public bool isChest = false;
+    public bool selected = false;
     GameObject player;
 	// Use this for initialization
 	void Start () {
@@ -33,6 +35,10 @@ public class NextMenu : MonoBehaviour {
                 inventoryItems[i].GetComponent<Chest>().atChest = false;
             }
             //overallMenu.GetComponentInChildren<Chest>().atChest = false;
+        }
+        if (selected)
+        {
+            selectedThing.GetComponent<Chest>().Reset();
         }
     }
     private void OpenNextMenu(bool opening, GameObject menu)

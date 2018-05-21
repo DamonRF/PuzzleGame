@@ -16,6 +16,10 @@ public class WirePuzzlePieces : MonoBehaviour {
         {
             position = 1;
         }
+        /*if (position == correctPosition)
+        {
+            director.GetComponent<WirePuzzle>().UpdatePlaces(rightPosition, this.gameObject);
+        }*/
 	}
 	
 	// Update is called once per frame

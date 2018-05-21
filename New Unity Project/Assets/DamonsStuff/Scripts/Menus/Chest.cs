@@ -28,11 +28,18 @@ public class Chest : MonoBehaviour {
     }
     public void MoreOptions()
     {
-        if (selected)
+        if (PlayerPrefs.GetInt("Selected") == 0)
         {
-            //backButton.SetActive(false);
-            //interactMenu.SetActive(true);
+            PlayerPrefs.SetInt("Selected", 1);
+            backButton.SetActive(false);
+            interactMenu.SetActive(true);
             GetComponent<Image>().color = Color.yellow;
+            selected = true;
         }
+    }
+
+    public void Reset()
+    {
+        PlayerPrefs.SetInt("Selected", 1);
     }
 }
