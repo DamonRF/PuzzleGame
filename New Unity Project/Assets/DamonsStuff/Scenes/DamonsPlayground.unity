@@ -630,8 +630,11 @@ MonoBehaviour:
   nextMenu: {fileID: 1091610687}
   overallMenu: {fileID: 639893941}
   chest: {fileID: 0}
+  selectedThing: {fileID: 0}
+  manager: {fileID: 0}
   opening: 1
   isChest: 0
+  selected: 0
 --- !u!1 &145855507
 GameObject:
   m_ObjectHideFlags: 0
@@ -992,8 +995,10 @@ MonoBehaviour:
   partner: {fileID: 1308537250}
   backButton: {fileID: 1240799874}
   interactMenu: {fileID: 1496039152}
+  manager: {fileID: 1091610687}
   selected: 0
   atChest: 0
+  item: 
 --- !u!1 &213263382
 GameObject:
   m_ObjectHideFlags: 0
@@ -1377,8 +1382,10 @@ MonoBehaviour:
   partner: {fileID: 289996851}
   backButton: {fileID: 0}
   interactMenu: {fileID: 0}
+  manager: {fileID: 0}
   selected: 0
   atChest: 1
+  item: 
 --- !u!114 &262108031
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1557,39 +1564,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 262785165}
---- !u!1 &266538879
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 266538880}
-  m_Layer: 5
-  m_Name: GameObject
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &266538880
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 266538879}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1011709526}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &287150348
 GameObject:
   m_ObjectHideFlags: 0
@@ -1602,7 +1576,7 @@ GameObject:
   - component: {fileID: 287150351}
   - component: {fileID: 287150350}
   m_Layer: 5
-  m_Name: Button (3)
+  m_Name: Inspect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1850,8 +1824,10 @@ MonoBehaviour:
   partner: {fileID: 262108029}
   backButton: {fileID: 1240799874}
   interactMenu: {fileID: 1496039152}
+  manager: {fileID: 1091610687}
   selected: 0
   atChest: 0
+  item: 
 --- !u!1 &307989104
 GameObject:
   m_ObjectHideFlags: 0
@@ -2194,8 +2170,10 @@ MonoBehaviour:
   partner: {fileID: 1361073582}
   backButton: {fileID: 0}
   interactMenu: {fileID: 0}
+  manager: {fileID: 0}
   selected: 0
   atChest: 1
+  item: 
 --- !u!114 &433396963
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2333,10 +2311,10 @@ RectTransform:
   m_Father: {fileID: 2009269190}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 110, y: -75}
+  m_SizeDelta: {x: 220, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &439018509
 MonoBehaviour:
@@ -2448,8 +2426,10 @@ MonoBehaviour:
   partner: {fileID: 1956924830}
   backButton: {fileID: 1240799874}
   interactMenu: {fileID: 1496039152}
+  manager: {fileID: 1091610687}
   selected: 0
   atChest: 0
+  item: Paper
 --- !u!1 &477733617
 GameObject:
   m_ObjectHideFlags: 0
@@ -2695,6 +2675,80 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 508659522}
+--- !u!1 &530607248
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 530607249}
+  - component: {fileID: 530607251}
+  - component: {fileID: 530607250}
+  m_Layer: 5
+  m_Name: Text (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &530607249
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 530607248}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2111846049}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 545.2, y: 190.65}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &530607250
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 530607248}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 50
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 0
+    m_MaxSize: 100
+    m_Alignment: 0
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: New Text
+--- !u!222 &530607251
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 530607248}
 --- !u!1 &554188262
 GameObject:
   m_ObjectHideFlags: 0
@@ -2802,8 +2856,10 @@ MonoBehaviour:
   partner: {fileID: 2042996298}
   backButton: {fileID: 0}
   interactMenu: {fileID: 0}
+  manager: {fileID: 0}
   selected: 0
   atChest: 1
+  item: 
 --- !u!114 &564059610
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3861,6 +3917,9 @@ MonoBehaviour:
   interactable: 1
   item: 1
   onlyOnce: 1
+  needsItem: 0
+  whatItem: 
+  whichConversation: 0
   conversation:
   - conversation:
     - You picked up a key
@@ -4468,10 +4527,10 @@ RectTransform:
   m_Father: {fileID: 2009269190}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 430, y: -75}
+  m_SizeDelta: {x: 220, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &772674398
 MonoBehaviour:
@@ -4583,8 +4642,10 @@ MonoBehaviour:
   partner: {fileID: 1441682957}
   backButton: {fileID: 1240799874}
   interactMenu: {fileID: 1496039152}
+  manager: {fileID: 1091610687}
   selected: 0
   atChest: 0
+  item: Scissors
 --- !u!1 &791355347
 GameObject:
   m_ObjectHideFlags: 0
@@ -4637,8 +4698,10 @@ MonoBehaviour:
   partner: {fileID: 1168602623}
   backButton: {fileID: 1240799874}
   interactMenu: {fileID: 1496039152}
+  manager: {fileID: 1091610687}
   selected: 0
   atChest: 0
+  item: Paper Cut-Out
 --- !u!114 &791355350
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5268,8 +5331,9 @@ GameObject:
   - component: {fileID: 1011709529}
   - component: {fileID: 1011709528}
   - component: {fileID: 1011709527}
+  - component: {fileID: 1011709530}
   m_Layer: 5
-  m_Name: Button (1)
+  m_Name: Combine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5286,7 +5350,6 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1921739391}
-  - {fileID: 266538880}
   m_Father: {fileID: 1496039153}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5333,7 +5396,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1011709528}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1011709530}
+        m_MethodName: PutThemTogether
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1011709528
@@ -5369,6 +5443,19 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1011709525}
+--- !u!114 &1011709530
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1011709525}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9181014ae8341324bbae5421fdaba244, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  items:
+  - {fileID: 791355347}
 --- !u!1 &1014816157
 GameObject:
   m_ObjectHideFlags: 0
@@ -5579,8 +5666,10 @@ MonoBehaviour:
   partner: {fileID: 1168602623}
   backButton: {fileID: 1240799874}
   interactMenu: {fileID: 1496039152}
+  manager: {fileID: 1091610687}
   selected: 0
   atChest: 0
+  item: 
 --- !u!1 &1031832227
 GameObject:
   m_ObjectHideFlags: 0
@@ -5804,11 +5893,11 @@ GameObject:
   - component: {fileID: 1091610689}
   m_Layer: 0
   m_Name: Inventory
-  m_TagString: Untagged
+  m_TagString: Manager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1091610688
 Transform:
   m_ObjectHideFlags: 0
@@ -5972,8 +6061,10 @@ MonoBehaviour:
   partner: {fileID: 1883714468}
   backButton: {fileID: 0}
   interactMenu: {fileID: 0}
+  manager: {fileID: 0}
   selected: 0
   atChest: 1
+  item: 
 --- !u!114 &1106668825
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6190,8 +6281,9 @@ GameObject:
   - component: {fileID: 1130679524}
   - component: {fileID: 1130679523}
   - component: {fileID: 1130679522}
+  - component: {fileID: 1130679525}
   m_Layer: 5
-  m_Name: Button (2)
+  m_Name: Interact
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6254,7 +6346,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1130679523}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1130679525}
+        m_MethodName: StartInteracting
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1130679523
@@ -6290,6 +6393,20 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1130679520}
+--- !u!114 &1130679525
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1130679520}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67309e638d31e4e469c349707b181c07, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interacting: {fileID: 2111846048}
+  manager: {fileID: 1091610687}
+  item: 
 --- !u!1 &1132902549
 GameObject:
   m_ObjectHideFlags: 0
@@ -6603,8 +6720,10 @@ MonoBehaviour:
   partner: {fileID: 1022079764}
   backButton: {fileID: 0}
   interactMenu: {fileID: 0}
+  manager: {fileID: 0}
   selected: 0
   atChest: 1
+  item: 
 --- !u!114 &1168602625
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6934,7 +7053,7 @@ GameObject:
   - component: {fileID: 1240799876}
   - component: {fileID: 1240799879}
   m_Layer: 5
-  m_Name: Button
+  m_Name: Back
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7058,8 +7177,11 @@ MonoBehaviour:
   nextMenu: {fileID: 639893941}
   overallMenu: {fileID: 1091610687}
   chest: {fileID: 310378638}
+  selectedThing: {fileID: 0}
+  manager: {fileID: 0}
   opening: 1
   isChest: 0
+  selected: 0
 --- !u!1 &1243806181
 GameObject:
   m_ObjectHideFlags: 0
@@ -7375,8 +7497,10 @@ MonoBehaviour:
   partner: {fileID: 172749362}
   backButton: {fileID: 0}
   interactMenu: {fileID: 0}
+  manager: {fileID: 0}
   selected: 0
   atChest: 1
+  item: 
 --- !u!114 &1308537252
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7841,8 +7965,10 @@ MonoBehaviour:
   partner: {fileID: 433396961}
   backButton: {fileID: 1240799874}
   interactMenu: {fileID: 1496039152}
+  manager: {fileID: 1091610687}
   selected: 0
   atChest: 0
+  item: 
 --- !u!1 &1392094301
 GameObject:
   m_ObjectHideFlags: 0
@@ -8129,8 +8255,10 @@ MonoBehaviour:
   partner: {fileID: 1798916676}
   backButton: {fileID: 1240799874}
   interactMenu: {fileID: 1496039152}
+  manager: {fileID: 1091610687}
   selected: 0
   atChest: 0
+  item: 
 --- !u!1 &1441682957
 GameObject:
   m_ObjectHideFlags: 0
@@ -8164,8 +8292,10 @@ MonoBehaviour:
   partner: {fileID: 772674396}
   backButton: {fileID: 0}
   interactMenu: {fileID: 0}
+  manager: {fileID: 0}
   selected: 0
   atChest: 1
+  item: 
 --- !u!114 &1441682959
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8349,7 +8479,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1496039153
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8385,7 +8515,7 @@ GameObject:
   - component: {fileID: 1507079942}
   - component: {fileID: 1507079941}
   m_Layer: 5
-  m_Name: Button (1)
+  m_Name: Back
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8421,11 +8551,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8cf1f2c2a347a1046890cbb7f4a44e75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextMenu: {fileID: 639893941}
-  overallMenu: {fileID: 1091610687}
+  nextMenu: {fileID: 1091610687}
+  overallMenu: {fileID: 1496039152}
   chest: {fileID: 310378638}
+  selectedThing: {fileID: 0}
+  manager: {fileID: 1091610687}
   opening: 1
   isChest: 0
+  selected: 1
 --- !u!114 &1507079942
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8601,6 +8734,7 @@ RectTransform:
   - {fileID: 1091610688}
   - {fileID: 639893942}
   - {fileID: 310378639}
+  - {fileID: 2111846049}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -8609,6 +8743,74 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1 &1572660358
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1572660359}
+  - component: {fileID: 1572660361}
+  - component: {fileID: 1572660360}
+  m_Layer: 5
+  m_Name: Image
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1572660359
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1572660358}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2111846049}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: -0.02999878}
+  m_SizeDelta: {x: 545.2, y: 190.7}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1572660360
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1572660358}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+--- !u!222 &1572660361
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1572660358}
 --- !u!1 &1580714386
 GameObject:
   m_ObjectHideFlags: 0
@@ -9407,6 +9609,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   conversation: []
+  conversationPlace: 0
   parent: {fileID: 91544437}
   activationSpot: {fileID: 0}
   player: {fileID: 0}
@@ -10082,8 +10285,10 @@ MonoBehaviour:
   partner: {fileID: 1434559127}
   backButton: {fileID: 0}
   interactMenu: {fileID: 0}
+  manager: {fileID: 0}
   selected: 0
   atChest: 1
+  item: 
 --- !u!114 &1798916678
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10686,8 +10891,10 @@ MonoBehaviour:
   partner: {fileID: 1106668823}
   backButton: {fileID: 1240799874}
   interactMenu: {fileID: 1496039152}
+  manager: {fileID: 1091610687}
   selected: 0
   atChest: 0
+  item: 
 --- !u!1 &1900133137
 GameObject:
   m_ObjectHideFlags: 0
@@ -11394,8 +11601,10 @@ MonoBehaviour:
   partner: {fileID: 439018507}
   backButton: {fileID: 0}
   interactMenu: {fileID: 0}
+  manager: {fileID: 0}
   selected: 0
   atChest: 1
+  item: 
 --- !u!114 &1956924832
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12275,8 +12484,10 @@ MonoBehaviour:
   partner: {fileID: 564059608}
   backButton: {fileID: 1240799874}
   interactMenu: {fileID: 1496039152}
+  manager: {fileID: 1091610687}
   selected: 0
   atChest: 0
+  item: 
 --- !u!1 &2047203882
 GameObject:
   m_ObjectHideFlags: 0
@@ -12393,6 +12604,9 @@ MonoBehaviour:
   interactable: 1
   item: 0
   onlyOnce: 0
+  needsItem: 0
+  whatItem: 
+  whichConversation: 0
   conversation:
   - conversation:
     - Hello World
@@ -12621,3 +12835,38 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2110825581}
+--- !u!1 &2111846048
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 2111846049}
+  m_Layer: 5
+  m_Name: Interacting
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &2111846049
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2111846048}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1572660359}
+  - {fileID: 530607249}
+  m_Father: {fileID: 1531146747}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 687.4, y: -444.67}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}

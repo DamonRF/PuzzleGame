@@ -6,6 +6,9 @@ public class Info : MonoBehaviour {
     public bool interactable = false;
     public bool item = false;
     public bool onlyOnce = false;
+    public bool needsItem = false;
+    public string whatItem;
+    public int whichConversation;
     public StringArray[] conversation;
 	// Use this for initialization
 	void Start () {

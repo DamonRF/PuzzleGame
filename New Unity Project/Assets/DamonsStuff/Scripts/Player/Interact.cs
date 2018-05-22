@@ -53,6 +53,7 @@ public class Interact : MonoBehaviour {
     private void TransferInfo(GameObject collision)
     {
         interaction.SetActive(true);
+       
         interaction.GetComponentInChildren<Typing>().Restart();
         interaction.GetComponentInChildren<Typing>().conversation = collision.GetComponent<Info>().conversation;
         interaction.GetComponentInChildren<Typing>().item = collision.GetComponent<Info>().item;
@@ -63,6 +64,23 @@ public class Interact : MonoBehaviour {
         interaction.GetComponentInChildren<Typing>().onlyOnce = collision.GetComponent<Info>().onlyOnce;
         interaction.GetComponentInChildren<Typing>().activationSpot = collision;
         ToggleMovement(true);
+       /* } else
+        {
+            if (collision.GetComponent<Info>().needsItem && PlayerPrefs.GetString("Item") == collision.GetComponent<Info>().whatItem)
+            {
+                interaction.GetComponentInChildren<Typing>().Restart();
+                interaction.GetComponentInChildren<Typing>().conversation = collision.GetComponent<Info>().conversation;
+                interaction.GetComponentInChildren<Typing>().conversationPlace = collision.GetComponent<Info>().whichConversation;
+                interaction.GetComponentInChildren<Typing>().item = collision.GetComponent<Info>().item;
+                if (collision.GetComponent<Info>().item)
+                {
+                    interaction.GetComponentInChildren<Typing>().itemObject = collision;
+                }
+                interaction.GetComponentInChildren<Typing>().onlyOnce = collision.GetComponent<Info>().onlyOnce;
+                interaction.GetComponentInChildren<Typing>().activationSpot = collision;
+                ToggleMovement(true);
+            } 
+        }*/
     }
 
     public void ToggleMovement(bool talking)

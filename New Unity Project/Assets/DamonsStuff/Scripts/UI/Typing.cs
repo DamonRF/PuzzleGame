@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class Typing : MonoBehaviour {
     public StringArray[] conversation;
-    int conversationPlace = 0;
+    public int conversationPlace = 0;
     int conversationIndex = 0;
     string text;
     float totalTime = 0;
@@ -26,6 +26,7 @@ public class Typing : MonoBehaviour {
     public bool onlyOnce = false;
     public bool branching = false;
     public float textSpeed = 0.1f;
+    //public bool doTheThing = false;
     void Start()
     {
         //we are assuming we are attaching this script to a text object
@@ -63,6 +64,10 @@ public class Typing : MonoBehaviour {
                 {
                     itemObject.GetComponent<Pickup>().PickupItem();
                 }
+                /*if (doTheThing)
+                {
+
+                }*/
                 if (onlyOnce)
                 {
                     activationSpot.SetActive(false);

@@ -7,8 +7,10 @@ public class Chest : MonoBehaviour {
     public GameObject partner;
     public GameObject backButton;
     public GameObject interactMenu;
+    public GameObject manager;
     public bool selected = false;
     public bool atChest = false;
+    public string item;
 	// Use this for initialization
 	void Start () {
         //atChest = false;
@@ -28,18 +30,37 @@ public class Chest : MonoBehaviour {
     }
     public void MoreOptions()
     {
-        if (PlayerPrefs.GetInt("Selected") == 0)
+        if (PlayerPrefs.GetInt("Selected") == 0 && !atChest)
         {
             PlayerPrefs.SetInt("Selected", 1);
+            PlayerPrefs.SetString("Item", item);
             backButton.SetActive(false);
             interactMenu.SetActive(true);
             GetComponent<Image>().color = Color.yellow;
             selected = true;
+        } else if (PlayerPrefs.GetInt("Combine") == 1)
+        {
+            if (PlayerPrefs.GetString("Item") == "Paper" && item == "Scissors" || PlayerPrefs.GetString("Item") == "Scissors" && item == "Paper")
+            {
+                interactMenu.GetComponentInChildren<PutTogether>().ActivateItem("Paper Cut-Out");
+                interactMenu.GetComponentInChildren<NextMenu>().ButtoneClicky();
+                for (int i = 0; i < manager.GetComponent<InventoryManagement>().inventory.Length; i++)
+                {
+                    if (manager.GetComponent<InventoryManagement>().inventory[i].GetComponent<Chest>().item == PlayerPrefs.GetString("Item"))
+                    {
+                        manager.GetComponent<InventoryManagement>().inventory[i].SetActive(false);
+                        break;
+                    }
+                }
+                this.gameObject.SetActive(false);
+            }
         }
     }
 
     public void Reset()
     {
-        PlayerPrefs.SetInt("Selected", 1);
+        PlayerPrefs.SetInt("Selected", 0);
+        GetComponent<Image>().color = Color.white;
+        backButton.SetActive(true);
     }
 }

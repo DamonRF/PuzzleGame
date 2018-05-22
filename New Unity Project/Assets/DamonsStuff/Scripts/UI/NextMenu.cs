@@ -7,10 +7,12 @@ public class NextMenu : MonoBehaviour {
     public GameObject overallMenu;
     public GameObject chest;
     public GameObject selectedThing;
+    public GameObject manager;
     public bool opening = false;
     public bool isChest = false;
     public bool selected = false;
     GameObject player;
+    
 	// Use this for initialization
 	void Start () {
         player = GameObject.FindGameObjectWithTag("Player");
@@ -38,6 +40,14 @@ public class NextMenu : MonoBehaviour {
         }
         if (selected)
         {
+            for (int i = 0; i < manager.GetComponent<InventoryManagement>().inventory.Length; i++)
+            {
+                if (manager.GetComponent<InventoryManagement>().inventory[i].GetComponent<Chest>().item == PlayerPrefs.GetString("Item"))
+                {
+                    selectedThing = manager.GetComponent<InventoryManagement>().inventory[i];
+                    break;
+                }
+            }
             selectedThing.GetComponent<Chest>().Reset();
         }
     }
