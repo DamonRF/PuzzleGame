@@ -1,14 +1,10 @@
 fileFormatVersion: 2
-guid: 0c048efedbc275a46862cd5f92d16bee
+guid: 131d0b270532e0e49a05ba6dc3a301e4
 TextureImporter:
   fileIDToRecycleName:
-    21300000: carpet_0
-    21300002: carpet_1
-    21300004: carpet_2
-    21300006: carpet_3
-    21300008: carpet_4
-    21300010: carpet_5
-    21300012: carpet_6
+    21300000: Table_0
+    21300002: Table_1
+    21300004: Table_2
   externalObjects: {}
   serializedVersion: 5
   mipmaps:
@@ -50,7 +46,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 108
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -89,13 +85,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: carpet_0
+      name: Table_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 72
-        width: 36
-        height: 36
+        y: 108
+        width: 108
+        height: 108
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -103,19 +99,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2a9da9c3111bdf64c9e13a60d3f4ee81
+      spriteID: 2f229d4993e685848a0df783f5d193c2
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: carpet_1
+      name: Table_1
       rect:
         serializedVersion: 2
-        x: 36
-        y: 72
-        width: 36
-        height: 36
+        x: 108
+        y: 108
+        width: 108
+        height: 108
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -123,99 +119,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 20f39ee6601ce1749b056632faaad8db
+      spriteID: c0b1dd0257ea83c4e895cb2d43d047c2
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: carpet_2
-      rect:
-        serializedVersion: 2
-        x: 72
-        y: 72
-        width: 36
-        height: 36
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 8d9613b365a5cd44081bf06b2f5178dd
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: carpet_3
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 36
-        width: 36
-        height: 36
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 53da70d593dcf944f9785e00718181ed
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: carpet_4
-      rect:
-        serializedVersion: 2
-        x: 36
-        y: 36
-        width: 36
-        height: 36
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c3d00fc6bd05f244b892d961b623643a
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: carpet_5
-      rect:
-        serializedVersion: 2
-        x: 72
-        y: 36
-        width: 36
-        height: 36
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4a69d573337f2b04882c8040b7b08d3e
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: carpet_6
+      name: Table_2
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 36
-        height: 36
+        width: 108
+        height: 108
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -223,7 +139,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2b3d597e96bbc7146869eb7e84e552ba
+      spriteID: 29605510c03038b4e917e8176f0f177b
       vertices: []
       indices: 
       edges: []
@@ -231,7 +147,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 48cf370d3a4973f42b18e224b6b62292
+    spriteID: 85fbb61965959bf42987a4794cecbcc6
     vertices: []
     indices: 
     edges: []
