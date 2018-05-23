@@ -7,9 +7,11 @@ public class Info : MonoBehaviour {
     public bool item = false;
     public bool onlyOnce = false;
     public bool needsItem = false;
+    public bool isPuzzle = false;
     public string whatItem;
     public int whichConversation;
     public StringArray[] conversation;
+    public GameObject puzzle;
 	// Use this for initialization
 	void Start () {
 		

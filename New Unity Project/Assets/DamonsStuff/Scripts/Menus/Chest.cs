@@ -8,6 +8,8 @@ public class Chest : MonoBehaviour {
     public GameObject backButton;
     public GameObject interactMenu;
     public GameObject manager;
+    public GameObject puzzle;
+    public bool isPuzzle = false;
     public bool selected = false;
     public bool atChest = false;
     public string item;
@@ -62,5 +64,11 @@ public class Chest : MonoBehaviour {
         PlayerPrefs.SetInt("Selected", 0);
         GetComponent<Image>().color = Color.white;
         backButton.SetActive(true);
+    }
+
+    public void UnlockPuzzle()
+    {
+        puzzle.GetComponent<PuzzleManagement>().unlocked = true;
+        Debug.Log("Should be unlocked");
     }
 }
