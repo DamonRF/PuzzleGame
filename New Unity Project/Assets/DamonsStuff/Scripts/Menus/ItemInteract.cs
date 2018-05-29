@@ -8,6 +8,7 @@ public class ItemInteract : MonoBehaviour {
     GameObject itemObject;
     public GameObject interacting;
     public GameObject manager;
+    public GameObject selectedItem;
     public string itemName;
     string text;
 	// Use this for initialization
@@ -40,14 +41,21 @@ public class ItemInteract : MonoBehaviour {
                 break;
             }
         }*/
-        int index = System.Array.IndexOf(manager.GetComponent<InventoryManagement>().inventory, GetComponent<Chest>().item == PlayerPrefs.GetString("Item"));
-        itemObject = manager.GetComponent<InventoryManagement>().inventory[index];
-        if (itemObject.GetComponent<Chest>().isPuzzle)
+        //int index = -1;
+        //    GameObject[] foo = manager.GetComponent<InventoryManagement>().inventory;
+        //index = System.Array.IndexOf(foo, GameObject.Find(PlayerPrefs.GetString("Item")));
+        
+
+            //System.Array.IndexOf(manager.GetComponent<InventoryManagement>().inventory, manager.GetComponentInChildren<Chest>().item == PlayerPrefs.GetString("Item"));
+        //Debug.Log(index);
+        //itemObject = manager.GetComponent<InventoryManagement>().inventory[index];
+        if (selectedItem.GetComponent<Chest>().isPuzzle)
         {
-            itemObject.GetComponent<Chest>().UnlockPuzzle();
+            selectedItem.GetComponent<Chest>().UnlockPuzzle();
             Debug.Log("Unlocking Puzzle");
         }
-        itemObject.SetActive(false);
+        selectedItem.SetActive(false);
+        interacting.SetActive(false);
         PlayerPrefs.SetInt("Interacting", 0);
     }
 

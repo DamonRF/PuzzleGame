@@ -27,6 +27,7 @@ public class PutTogether : MonoBehaviour {
             if (items[i].GetComponent<Chest>().item == itemName)
             {
                 items[i].SetActive(true);
+                Debug.Log(items[i]);
                 break;
             }
         }

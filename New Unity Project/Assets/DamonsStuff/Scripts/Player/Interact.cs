@@ -41,7 +41,7 @@ public class Interact : MonoBehaviour {
             ToggleMovement(true);
             inventory.SetActive(true);
             chest.SetActive(true);
-            Debug.Log("Bleeeeeeeegh");
+            //Debug.Log("Bleeeeeeeegh");
             inventory.GetComponentInChildren<NextMenu>().isChest = true;
             GameObject[] inventoryItems = inventory.GetComponent<InventoryManagement>().inventory;
             for (int i = 0; i < inventoryItems.Length; i++)
@@ -54,6 +54,15 @@ public class Interact : MonoBehaviour {
             
         }
     }
+
+    public void InspectingItem(StringArray[] newConversation)
+    {
+        interaction.SetActive(true);
+        interaction.GetComponentInChildren<Typing>().Restart();
+        interaction.GetComponentInChildren<Typing>().conversation = newConversation;
+        ToggleMovement(true);
+    }
+    
 
     private void TransferInfo(GameObject collision)
     {

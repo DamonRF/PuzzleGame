@@ -13,6 +13,7 @@ public class Chest : MonoBehaviour {
     public bool selected = false;
     public bool atChest = false;
     public string item;
+    public StringArray[] itemDescription;
 	// Use this for initialization
 	void Start () {
         //atChest = false;
@@ -20,7 +21,7 @@ public class Chest : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+        //Debug.Log(PlayerPrefs.GetString("Item"));
 	}
     public void TransferOver()
     {
@@ -38,6 +39,8 @@ public class Chest : MonoBehaviour {
             PlayerPrefs.SetString("Item", item);
             backButton.SetActive(false);
             interactMenu.SetActive(true);
+            interactMenu.GetComponentInChildren<ItemInteract>().selectedItem = this.gameObject;
+            interactMenu.GetComponentInChildren<Inspect>().conversation = itemDescription;
             GetComponent<Image>().color = Color.yellow;
             selected = true;
         } else if (PlayerPrefs.GetInt("Combine") == 1)
@@ -63,6 +66,7 @@ public class Chest : MonoBehaviour {
     {
         PlayerPrefs.SetInt("Selected", 0);
         GetComponent<Image>().color = Color.white;
+        selected = false;
         backButton.SetActive(true);
     }
 

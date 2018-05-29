@@ -93,6 +93,8 @@ public class Typing : MonoBehaviour {
         charCount = 0;
         totalTime = 0;
         activateME = false;
+        item = false;
+        choice = false;
     }
     public void EndConversation()
     {

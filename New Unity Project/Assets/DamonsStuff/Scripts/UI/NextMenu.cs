@@ -40,10 +40,14 @@ public class NextMenu : MonoBehaviour {
         }
         if (selected)
         {
+            //Debug.Log("1");
             for (int i = 0; i < manager.GetComponent<InventoryManagement>().inventory.Length; i++)
             {
+               // Debug.Log("2" + manager.GetComponent<InventoryManagement>().inventory[i].GetComponent<Chest>().item);
+                
                 if (manager.GetComponent<InventoryManagement>().inventory[i].GetComponent<Chest>().item == PlayerPrefs.GetString("Item"))
                 {
+                    //Debug.Log("foo");
                     selectedThing = manager.GetComponent<InventoryManagement>().inventory[i];
                     break;
                 }
