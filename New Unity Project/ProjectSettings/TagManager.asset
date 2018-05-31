@@ -8,6 +8,7 @@ TagManager:
   - Chest
   - Interactable
   - Manager
+  - LightPiece
   layers:
   - Default
   - TransparentFX
