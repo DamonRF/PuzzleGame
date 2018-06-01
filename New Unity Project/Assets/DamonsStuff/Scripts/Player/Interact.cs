@@ -53,6 +53,24 @@ public class Interact : MonoBehaviour {
             //inventory.GetComponentInChildren<Chest>().atChest = true;
             
         }
+        /*else if (Input.GetKeyDown(KeyCode.E) && collision.gameObject.tag == "LightManager")
+        {
+            ToggleMovement(true);
+            TransferLightPuzzleInfo(collision.gameObject);
+        }
+        else if (Input.GetKeyDown(KeyCode.E) && collision.gameObject.tag == "LightPiece")
+        {
+            collision.gameObject.GetComponent<LightPuzzle>().ChangePiece();
+        } */
+    }
+
+    public void TransferLightPuzzleInfo(GameObject collision)
+    {
+        interaction.SetActive(true);
+        interaction.GetComponentInChildren<Typing>().Restart();
+        //collision.GetComponent<LightPuzzleManager>().CheckPieces();
+        interaction.GetComponentInChildren<Typing>().conversation = collision.GetComponent<LightPuzzleManager>().conversation;
+        
     }
 
     public void InspectingItem(StringArray[] newConversation)

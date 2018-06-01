@@ -10,7 +10,7 @@ public class LightPuzzle : MonoBehaviour {
     public GameObject manager;
 	// Use this for initialization
 	void Start () {
-		
+        RestartPuzzle();
 	}
 	
 	// Update is called once per frame
@@ -31,12 +31,14 @@ public class LightPuzzle : MonoBehaviour {
         {
             correctPlace = false;
         }
+        //Debug.Log(gameObject.name + " is " + correctForm);
+        manager.GetComponent<LightPuzzleManager>().UpdateTrueOrFalse(correctPlace, this.gameObject);
     }
 
     public void ChangePiece()
     {
         form++;
-        if (form >= 4)
+        if (form >= 5)
         {
             form = 1;
         }
@@ -62,5 +64,21 @@ public class LightPuzzle : MonoBehaviour {
         {
             correctPlace = false;
         }
+
+        manager.GetComponent<LightPuzzleManager>().UpdateTrueOrFalse(correctPlace, this.gameObject);
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        Debug.Log("I'm in " + this.gameObject.name);
+        if (collision.gameObject.tag == "Player" && Input.GetKeyDown(KeyCode.E))
+        {
+            ChangePiece();
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        Debug.Log("Left " + this.gameObject.name);
     }
 }

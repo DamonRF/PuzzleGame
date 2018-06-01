@@ -124,6 +124,7 @@ GameObject:
   - component: {fileID: 4967875}
   - component: {fileID: 4967874}
   - component: {fileID: 4967873}
+  - component: {fileID: 4967877}
   m_Layer: 0
   m_Name: Light (1)
   m_TagString: LightPiece
@@ -239,6 +240,20 @@ Transform:
   m_Father: {fileID: 100287954}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4967877
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 4967872}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e296d9775da8274fb8615ced9c7f011, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  form: 1
+  correctPlace: 0
+  manager: {fileID: 100287949}
 --- !u!1 &9308886
 GameObject:
   m_ObjectHideFlags: 0
@@ -775,7 +790,7 @@ GameObject:
   - component: {fileID: 100287950}
   m_Layer: 0
   m_Name: LightPuzzleManager
-  m_TagString: Untagged
+  m_TagString: LightManager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -791,9 +806,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d715069a40683ac4c8a6b406fb30c00b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pieces: []
+  pieces:
+  - {fileID: 557714157}
+  - {fileID: 4967872}
+  - {fileID: 1820099329}
+  - {fileID: 1379911556}
+  - {fileID: 936730800}
   trueOrFalse: 0000000000
-  conversation: []
+  conversation:
+  - conversation:
+    - 
+    - 
 --- !u!61 &100287951
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3152,6 +3175,7 @@ GameObject:
   - component: {fileID: 557714158}
   - component: {fileID: 557714161}
   - component: {fileID: 557714160}
+  - component: {fileID: 557714162}
   m_Layer: 0
   m_Name: Light
   m_TagString: LightPiece
@@ -3267,6 +3291,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.16, y: 0.16}
   m_EdgeRadius: 0
+--- !u!114 &557714162
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 557714157}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e296d9775da8274fb8615ced9c7f011, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  form: 1
+  correctPlace: 0
+  manager: {fileID: 100287949}
 --- !u!1 &564059608
 GameObject:
   m_ObjectHideFlags: 0
@@ -5700,6 +5738,7 @@ GameObject:
   - component: {fileID: 936730803}
   - component: {fileID: 936730802}
   - component: {fileID: 936730801}
+  - component: {fileID: 936730805}
   m_Layer: 0
   m_Name: Light (4)
   m_TagString: LightPiece
@@ -5815,6 +5854,20 @@ Transform:
   m_Father: {fileID: 100287954}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &936730805
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 936730800}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e296d9775da8274fb8615ced9c7f011, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  form: 1
+  correctPlace: 0
+  manager: {fileID: 100287949}
 --- !u!1 &957129043
 GameObject:
   m_ObjectHideFlags: 0
@@ -5888,8 +5941,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 957129043}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.0282, y: -0.3683, z: -0.1171875}
-  m_LocalScale: {x: 13.228565, y: 14.717643, z: 1}
+  m_LocalPosition: {x: -0.545, y: -1.019, z: -0.1171875}
+  m_LocalScale: {x: 6.0656934, y: 6.578014, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2
@@ -5911,7 +5964,7 @@ Rigidbody2D:
   m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
-  m_SleepingMode: 1
+  m_SleepingMode: 0
   m_CollisionDetection: 0
   m_Constraints: 4
 --- !u!114 &957129047
@@ -8824,6 +8877,7 @@ GameObject:
   - component: {fileID: 1379911559}
   - component: {fileID: 1379911558}
   - component: {fileID: 1379911557}
+  - component: {fileID: 1379911561}
   m_Layer: 0
   m_Name: Light (3)
   m_TagString: LightPiece
@@ -8939,6 +8993,20 @@ Transform:
   m_Father: {fileID: 100287954}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1379911561
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1379911556}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e296d9775da8274fb8615ced9c7f011, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  form: 1
+  correctPlace: 0
+  manager: {fileID: 100287949}
 --- !u!1 &1392094301
 GameObject:
   m_ObjectHideFlags: 0
@@ -9800,6 +9868,7 @@ GameObject:
   - component: {fileID: 1580714389}
   - component: {fileID: 1580714388}
   - component: {fileID: 1580714387}
+  - component: {fileID: 1580714391}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -9864,12 +9933,30 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1580714386}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -10}
+  m_LocalPosition: {x: 0, y: 1.49, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1580714391
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1580714386}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00c8ccaeb53a808469a5dd15962189bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 957129045}
+  speed: 5
+  cameraDepth: -10
+  minX: -10
+  minY: -10
+  maxX: 10
+  maxY: 10
 --- !u!1 &1606317354
 GameObject:
   m_ObjectHideFlags: 0
@@ -11674,6 +11761,7 @@ GameObject:
   - component: {fileID: 1820099332}
   - component: {fileID: 1820099331}
   - component: {fileID: 1820099330}
+  - component: {fileID: 1820099334}
   m_Layer: 0
   m_Name: Light (2)
   m_TagString: LightPiece
@@ -11789,6 +11877,20 @@ Transform:
   m_Father: {fileID: 100287954}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1820099334
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1820099329}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e296d9775da8274fb8615ced9c7f011, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  form: 1
+  correctPlace: 0
+  manager: {fileID: 100287949}
 --- !u!1 &1853447604
 GameObject:
   m_ObjectHideFlags: 0
