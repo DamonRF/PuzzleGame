@@ -27,3 +27,9 @@ public class BoolArray
 {
     public bool[] trueOrFalse;
 }
+
+[Serializable]
+public class InventoryArray
+{
+    public GameObject[] inventory;
+}

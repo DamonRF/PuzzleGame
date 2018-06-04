@@ -5,6 +5,7 @@ using UnityEngine;
 public class PuzzleManagement : MonoBehaviour {
     bool isActive = false;
     public bool unlocked = false;
+    public bool isSolved = false;
 	// Use this for initialization
 	void Start () {
 		
@@ -32,6 +33,8 @@ public class PuzzleManagement : MonoBehaviour {
 
     public void SolvePuzzle()
     {
-        
+        GameObject.FindGameObjectWithTag("MainCamera").GetComponent<PuzzleTracker>().UpdatePuzzlesDone();
+        isSolved = true;
+        this.gameObject.SetActive(false);
     }
 }

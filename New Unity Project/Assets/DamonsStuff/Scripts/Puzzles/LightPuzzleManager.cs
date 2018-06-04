@@ -7,6 +7,7 @@ public class LightPuzzleManager : MonoBehaviour {
     public GameObject[] pieces;
     public bool[] trueOrFalse;
     public StringArray[] conversation;
+    public bool isSolved = false;
 	// Use this for initialization
 	void Start () {
         PlayerPrefs.SetInt("Chances", 10);
@@ -41,33 +42,49 @@ public class LightPuzzleManager : MonoBehaviour {
 
     public void CheckPieces()
     {
-        int correct = 0;
-        for (int i = 0; i < trueOrFalse.Length; i++)
+        if (!isSolved)
         {
-            if (trueOrFalse[i])
+            int correct = 0;
+            for (int i = 0; i < trueOrFalse.Length; i++)
             {
-                correct++;
+                if (trueOrFalse[i])
+                {
+                    correct++;
+                }
             }
-        }
-
-        conversation[0].conversation[0] = correct + " are correct.";
-        if (correct >= pieces.Length){
-            conversation[0].conversation[1] = "All light pieces are correct";
-        } else
-        {
-            PlayerPrefs.SetInt("Chances", PlayerPrefs.GetInt("Chances") - 1);
-            if (PlayerPrefs.GetInt("Chances") <= 0)
+        
+            conversation[0].conversation[0] = correct + " are correct.";
+            if (correct >= pieces.Length)
             {
-                PlayerPrefs.SetInt("Chances", 10);
-                conversation[0].conversation[1] = "No more chances. Puzzle reseting";
+                conversation[0].conversation[1] = "All light pieces are correct";
+                GameObject.FindGameObjectWithTag("MainCamera").GetComponent<PuzzleTracker>().UpdatePuzzlesDone();
+                isSolved = true;
                 for (int i = 0; i < pieces.Length; i++)
                 {
-                    pieces[i].GetComponent<LightPuzzle>().RestartPuzzle();
+                    pieces[i].GetComponent<LightPuzzle>().isSolved = true;
                 }
-            } else
-            {
-                conversation[0].conversation[1] = PlayerPrefs.GetInt("Chances") + " chances remaining";
             }
+            else
+            {
+                PlayerPrefs.SetInt("Chances", PlayerPrefs.GetInt("Chances") - 1);
+                if (PlayerPrefs.GetInt("Chances") <= 0)
+                {
+                    PlayerPrefs.SetInt("Chances", 10);
+                    conversation[0].conversation[1] = "No more chances. Puzzle reseting";
+                    for (int i = 0; i < pieces.Length; i++)
+                    {
+                        pieces[i].GetComponent<LightPuzzle>().RestartPuzzle();
+                    }
+                }
+                else
+                {
+                    conversation[0].conversation[1] = PlayerPrefs.GetInt("Chances") + " chances remaining";
+                }
+            }
+        } else
+        {
+            conversation[0].conversation[0] = "The puzzle is already solved";
+            conversation[0].conversation[1] = "Move on";
         }
     }
 

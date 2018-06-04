@@ -5,6 +5,7 @@ using UnityEngine;
 public class WirePuzzle : MonoBehaviour {
     public BoolArray correctPlaces;
     public GameObject[] pieces;
+    public bool isSolved = false;
 	// Use this for initialization
 	void Start () {
         for (int i = 0; i < pieces.Length; i++)
@@ -45,5 +46,6 @@ public class WirePuzzle : MonoBehaviour {
             }
         }
         Debug.Log("You win!");
+        GetComponent<PuzzleManagement>().SolvePuzzle();
     }
 }

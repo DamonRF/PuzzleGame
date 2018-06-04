@@ -8,6 +8,7 @@ public class LightPuzzle : MonoBehaviour {
     private int correctForm = 0;
     public bool correctPlace = false;
     public GameObject manager;
+    public bool isSolved = false;
 	// Use this for initialization
 	void Start () {
         RestartPuzzle();
@@ -70,15 +71,15 @@ public class LightPuzzle : MonoBehaviour {
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        Debug.Log("I'm in " + this.gameObject.name);
-        if (collision.gameObject.tag == "Player" && Input.GetKeyDown(KeyCode.E))
+        //Debug.Log("I'm in " + this.gameObject.name);
+        if (collision.gameObject.tag == "Player" && Input.GetKeyDown(KeyCode.E) && !isSolved)
         {
             ChangePiece();
         }
     }
 
-    private void OnTriggerExit2D(Collider2D collision)
+    /*private void OnTriggerExit2D(Collider2D collision)
     {
         Debug.Log("Left " + this.gameObject.name);
-    }
+    }*/
 }

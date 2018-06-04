@@ -7,7 +7,9 @@ public class Interact : MonoBehaviour {
     public GameObject inventory;
     public GameObject chest;
     public GameObject itemInteract;
-    public StringArray[] conversation;
+    public StringArray[] unableToConversation;
+    public StringArray[] alreadySolvedConversation;
+    private bool interacting = false;
     // Use this for initialization
     void Start () {
         PlayerPrefs.SetInt("Interacting", 0);
@@ -20,38 +22,48 @@ public class Interact : MonoBehaviour {
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (Input.GetKeyDown(KeyCode.E) && collision.gameObject.tag == "Interactable")
+        if (!interacting)
         {
-            if (!collision.gameObject.GetComponent<Info>().isPuzzle)
+            if (Input.GetKeyDown(KeyCode.E) && collision.gameObject.tag == "Interactable")
             {
-                TransferInfo(collision.gameObject);
-            } else
-            {
-                if (collision.gameObject.GetComponent<Info>().puzzle.GetComponent<PuzzleManagement>().unlocked)
-                {
-                    collision.gameObject.GetComponent<Info>().puzzle.GetComponent<PuzzleManagement>().OpenPuzzle();
-                } else
+                if (!collision.gameObject.GetComponent<Info>().isPuzzle)
                 {
                     TransferInfo(collision.gameObject);
                 }
+                else
+                {
+                    if (collision.gameObject.GetComponent<Info>().puzzle.GetComponent<PuzzleManagement>().unlocked)
+                    {
+                        if (!collision.gameObject.GetComponent<Info>().puzzle.GetComponent<PuzzleManagement>().isSolved){
+                            collision.gameObject.GetComponent<Info>().puzzle.GetComponent<PuzzleManagement>().OpenPuzzle();
+                        } else
+                        {
+                            AlreadySolved();
+                        }
+                    }
+                    else
+                    {
+                        TransferInfo(collision.gameObject);
+                    }
+                }
             }
-        }
-        else if (Input.GetKeyDown(KeyCode.E) && collision.gameObject.tag == "Chest")
-        {
-            ToggleMovement(true);
-            inventory.SetActive(true);
-            chest.SetActive(true);
-            //Debug.Log("Bleeeeeeeegh");
-            inventory.GetComponentInChildren<NextMenu>().isChest = true;
-            GameObject[] inventoryItems = inventory.GetComponent<InventoryManagement>().inventory;
-            for (int i = 0; i < inventoryItems.Length; i++)
-            {            
-                inventoryItems[i].GetComponent<Chest>().atChest = true;
-                //Debug.Log(i);
-            }
+            else if (Input.GetKeyDown(KeyCode.E) && collision.gameObject.tag == "Chest")
+            {
+                ToggleMovement(true);
+                inventory.SetActive(true);
+                chest.SetActive(true);
+                //Debug.Log("Bleeeeeeeegh");
+                inventory.GetComponentInChildren<NextMenu>().isChest = true;
+                GameObject[] inventoryItems = inventory.GetComponent<InventoryManagement>().inventory;
+                for (int i = 0; i < inventoryItems.Length; i++)
+                {
+                    inventoryItems[i].GetComponent<Chest>().atChest = true;
+                    //Debug.Log(i);
+                }
 
-            //inventory.GetComponentInChildren<Chest>().atChest = true;
-            
+                //inventory.GetComponentInChildren<Chest>().atChest = true;
+
+            }
         }
         /*else if (Input.GetKeyDown(KeyCode.E) && collision.gameObject.tag == "LightManager")
         {
@@ -64,12 +76,24 @@ public class Interact : MonoBehaviour {
         } */
     }
 
-    public void TransferLightPuzzleInfo(GameObject collision)
+    private void AlreadySolved()
     {
         interaction.SetActive(true);
         interaction.GetComponentInChildren<Typing>().Restart();
-        //collision.GetComponent<LightPuzzleManager>().CheckPieces();
-        interaction.GetComponentInChildren<Typing>().conversation = collision.GetComponent<LightPuzzleManager>().conversation;
+        interaction.GetComponentInChildren<Typing>().conversation = alreadySolvedConversation;
+        ToggleMovement(true);
+    }
+
+    public void TransferLightPuzzleInfo(GameObject collision)
+    {
+        if (!interacting)
+        {
+            interaction.SetActive(true);
+            interaction.GetComponentInChildren<Typing>().Restart();
+            //collision.GetComponent<LightPuzzleManager>().CheckPieces();
+            interaction.GetComponentInChildren<Typing>().conversation = collision.GetComponent<LightPuzzleManager>().conversation;
+            ToggleMovement(true);
+        }
         
     }
 
@@ -98,7 +122,7 @@ public class Interact : MonoBehaviour {
             }
             else
             {
-                interaction.GetComponentInChildren<Typing>().conversation = conversation;
+                interaction.GetComponentInChildren<Typing>().conversation = unableToConversation;
                 itemInteract.GetComponent<ItemInteract>().CancelInteract();
             }
         }
@@ -117,9 +141,11 @@ public class Interact : MonoBehaviour {
         if (talking)
         {
             GetComponent<SimpleMove>().enabled = false;
+            interacting = true;
         } else
         {
             GetComponent<SimpleMove>().enabled = true;
+            interacting = false;
         }
     }
 }
